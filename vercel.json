@@ -1,9 +1,4 @@
 {
-  "buildCommand": "pnpm install && pnpm run build",
-  "outputDirectory": "dist",
   "framework": null,
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
-  "env": {
-    "BASE_PATH": "/birthday-cake-app/"
-  }
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

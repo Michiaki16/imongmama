@@ -4,12 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Happy Birthday!</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="page-shell">
+      <div class="birthday-card">
+        <div class="hero-label">HAPPY BIRTHDAY!</div>
+        <div class="hero-preview">
+          <div class="cake">
+            <div class="cake-shell">
+              <div class="plate"></div>
+              <div class="cake-body"></div>
+              <div class="icing"></div>
+              <div class="sprinkle s1"></div>
+              <div class="sprinkle s2"></div>
+              <div class="sprinkle s3"></div>
+              <div class="sprinkle s4"></div>
+              <div class="sprinkle s5"></div>
+
+              <div class="candle c1">
+                <div class="flame"></div>
+              </div>
+              <div class="candle c2">
+                <div class="flame"></div>
+              </div>
+              <div class="candle c3">
+                <div class="flame"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wish-row">
+          <span>BIRTHDAY WISHES:</span>
+          <div class="wish-line"></div>
+        </div>
+
+        <div class="wish-card">
+          <div class="avatar">
+            <div class="avatar-face">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="smile"></div>
+            </div>
+          </div>
+          <div class="wish-copy">
+            <p>Have an amazing birthday!</p>
+            <p>Enjoy your special day! 🎉</p>
+          </div>
+          <button class="wish-button">
+            <span class="wish-icon">♥</span>
+            Celebrate
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   </body>
 </html>
