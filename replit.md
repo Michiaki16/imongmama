@@ -1,45 +1,45 @@
-# [Project name]
+# Happy Birthday App
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An interactive birthday greeting page for "Dudu" with an SVG birthday cake featuring 29 flickering candles, microphone-based candle blowing, confetti, a cat video reveal, and a birthday wishes section.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/birthday-app run dev` — run the birthday app (dev mode)
+- `pnpm --filter @workspace/birthday-app run build` — build for production (outputs to `artifacts/birthday-app/dist`)
 - `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- React 18 + Vite 7
+- Pure CSS animations (no external animation libraries)
+- Web Audio API for microphone-based candle blowing
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/birthday-app/src/pages/BirthdayPage.jsx` — main page component
+- `artifacts/birthday-app/src/components/BirthdayCake.jsx` — SVG cake with 29 animated candles
+- `artifacts/birthday-app/src/components/Confetti.jsx` — confetti and static decorations
+- `artifacts/birthday-app/src/components/WishModal.jsx` — birthday wish submission modal
+- `artifacts/birthday-app/src/assets/` — asd.jpg (avatar), hbd.mp3 (birthday song), cat.mp4 (reveal video)
+- `artifacts/birthday-app/src/birthday.css` — all keyframe animations
+- `vercel.json` — root-level Vercel deployment config
 
-## Architecture decisions
+## Deploying to Vercel
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+Download the codebase and run `vercel deploy` from the project root — the root `vercel.json` handles everything automatically:
+- Install: `pnpm install`
+- Build: `pnpm --filter @workspace/birthday-app run build`
+- Output: `artifacts/birthday-app/dist`
 
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
+Alternatively, in the Vercel dashboard you can set **Root Directory** to `artifacts/birthday-app` and use the `vercel.json` inside that folder.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Static build only — no backend or database needed
+- Vercel-ready deployment out of the box
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- The vite.config.ts reads `PORT` and `BASE_PATH` from env — both have safe defaults (`5173` and `/`) so the build works without those env vars set (unlike the monorepo pattern).
+- Assets (jpg, mp3, mp4) are bundled by Vite via static imports — no CDN needed.

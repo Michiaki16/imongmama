@@ -1,0 +1,6 @@
+{
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm --filter @workspace/birthday-app run build",
+  "outputDirectory": "artifacts/birthday-app/dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
