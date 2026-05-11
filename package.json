@@ -1,18 +1,11 @@
 {
   "name": "birthday-cake-blow",
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "build": "vite build"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
     "vite": "^5.4.11"
   }
 }
